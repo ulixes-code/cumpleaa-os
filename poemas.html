@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versos que brillan</title>
+  <style>
+    body {
+      background: linear-gradient(180deg, #b39ddb, #f8bbd0);
+      font-family: "Segoe UI", Arial, sans-serif;
+      text-align: center;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      animation: fondo 10s infinite alternate ease-in-out;
+    }
+
+    h1 {
+      background-color: #8e24aa;
+      padding: 20px;
+      margin: 0;
+      color: #fff;
+      font-size: 2.2em;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: deslizarArriba 2s ease;
+    }
+
+    .mensaje {
+      background: #f3e5f5;
+      color: #6a1b9a;
+      font-weight: bold;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 20px;
+      width: fit-content;
+      animation: parpadeo 2s infinite;
+      box-shadow: 0 0 15px rgba(186,104,200,0.6);
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+    }
+
+    .poema-box {
+      position: relative;
+      width: 90%;
+      max-width: 550px;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .poema {
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      padding: 25px;
+      text-align: center;
+      border: 3px solid #ce93d8;
+      animation: flotar 6s ease-in-out infinite;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
+    }
+
+    .poema h2 {
+      margin-bottom: 10px;
+      color: #9c27b0;
+      font-size: 1.3em;
+    }
+
+    .poema p {
+      font-size: 1rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    input[type="checkbox"]:checked + .poema {
+      border-color: #ab47bc;
+      background: #f3e5f5;
+      box-shadow: 0 0 25px rgba(171, 71, 188, 0.8);
+      animation: vibrar 0.4s ease-in-out infinite alternate;
+      transform: rotate(1deg) scale(1.03);
+    }
+
+    @keyframes vibrar {
+      0% { transform: translateX(0) rotate(1deg) scale(1.03); }
+      25% { transform: translateX(-3px) rotate(-1deg) scale(1.04); }
+      50% { transform: translateX(3px) rotate(1deg) scale(1.03); }
+      75% { transform: translateX(-2px) rotate(-1deg) scale(1.02); }
+      100% { transform: translateX(0) rotate(1deg) scale(1.03); }
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #fff;
+      font-size: 1em;
+      background-color: #6a1b9a;
+      padding: 15px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+      animation: deslizarAbajo 2s ease;
+    }
+
+    @keyframes fondo {
+      0% { background: linear-gradient(180deg, #b39ddb, #f8bbd0); }
+      100% { background: linear-gradient(180deg, #d1c4e9, #f48fb1); }
+    }
+
+    @keyframes deslizarArriba {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes deslizarAbajo {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes parpadeo {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    .confeti {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background-color: red;
+      top: 50%;
+      left: 50%;
+      opacity: 0.9;
+      border-radius: 50%;
+      animation: caer 2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes caer {
+      0% { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--x), var(--y)) rotate(720deg) scale(0.8); opacity: 0; }
+    }
+
+    /* 🦄 Unicornio volador */
+    .unicornio {
+      position: fixed;
+      top: 40%;
+      left: -150px;
+      width: 120px;
+      animation: volar 15s linear infinite;
+      z-index: 10;
+    }
+
+    @keyframes volar {
+      0% { left: -150px; transform: scaleX(1) rotate(5deg); }
+      50% { top: 30%; }
+      100% { left: 110%; transform: scaleX(-1) rotate(-5deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>💜 Versos que brillan 💜</h1>
+  <div class="mensaje">✨ Toca los poemas ✨</div>
+
+  <!-- Unicornio -->
+  <img class="unicornio" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Unicornio mágico">
+
+  <div class="contenedor">
+    <label class="poema-box">
+      <input type="checkbox">
+      <div class="poema">
+        <h2>🌸 Eres tú</h2>
+        <p>
+Eres ese suspiro al viento,
+la sonrisa inesperada,
+esa chispa que enciende mi mundo
+cuando todo parecía nada.
+        </p>
+      </div>
+    </label>
+
+    <label class="poema-box">
+      <input type="checkbox">
+      <div class="poema">
+        <h2>🌟 Pequeña estrella</h2>
+        <p>
+Brillas sin saber que iluminas,
+como si el cielo te envidiara.
+Porque tu luz, pequeña estrella,
+hace que hasta el sol se quede mirando.
+        </p>
+      </div>
+    </label>
+
+    <label class="poema-box">
+      <input type="checkbox">
+      <div class="poema">
+        <h2>💫 Un deseo</h2>
+        <p>
+Si pudieras pedir un deseo,
+te regalaría mis sueños y mis soles.
+Porque cada día contigo,
+vale más que mil canciones.
+        </p>
+      </div>
+    </label>
+  </div>
+
+  <footer>© 2025 - Página de poemas 💜</footer>
+
+  <script>
+    document.querySelectorAll('.poema').forEach(poema => {
+      poema.addEventListener('click', () => {
+        for (let i = 0; i < 40; i++) {
+          const confeti = document.createElement('div');
+          confeti.classList.add('confeti');
+          confeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+          confeti.style.setProperty('--x', `${(Math.random() - 0.5) * 600}px`);
+          confeti.style.setProperty('--y', `${200 + Math.random() * 400}px`);
+          document.body.appendChild(confeti);
+          setTimeout(() => confeti.remove(), 2000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

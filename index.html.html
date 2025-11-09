@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Cumpleaños, Peque! 🎉</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .boton-seccion {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      background: linear-gradient(45deg, #ba68c8, #f48fb1);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.1em;
+      animation: brillar 2s infinite alternate ease-in-out;
+    }
+
+    .boton-seccion:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(240,98,146,0.8);
+    }
+
+    @keyframes brillar {
+      0% { box-shadow: 0 0 10px rgba(186,104,200,0.6); }
+      100% { box-shadow: 0 0 25px rgba(240,98,146,0.9); }
+    }
+
+    .botones-contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header class="encabezado">
+    <h1>🎂 ¡Feliz Cumpleaños, <span class="nombre">Peque</span>! 🎂</h1>
+    <p>Hoy el universo se pinta de colores solo por ti 💖</p>
+  </header>
+
+  <main class="contenedor">
+    <section class="mensaje tarjeta">
+      <h2>✨ Un día tan brillante como tu sonrisa ✨</h2>
+      <p>
+        Feliz cumpleaños a ti, niña Minion con complejo de niña Otaku.  
+        Aunque te faltaron danoninos para crecer, has crecido demasiado.  
+        Ya no eres esa niña pequeña que lloraba por todo, más cuando le decían que tenía piojos.  
+        Has crecido lo suficiente para convertirte en la mujer que eres ahora.  
+        Sigue esforzándote mucho más para convertirte en esa *chefsita* que estás destinada a ser. 👩‍🍳  
+        <br><br>
+        A veces se me hace imposible no recordarte como esa niña pequeña y tierna que esperaba para decir algo dulce.  
+        Y aunque ya creciste, sigues siendo esa misma alma buena que casi llora cuando choqué el carro con los policías. 🚗💥  
+        <br><br>
+        Aunque casi no hablemos, estoy aquí para cuando necesites.  
+        Cuando te sientas mal o pienses que el mundo se pone en tu contra,  
+        yo estaré para apoyarte y recordarte que no estás sola en este mundo de locos. 🌍💫  
+        Sigue esforzándote y recuerda: naciste para brillar entre los sabores del mundo. 🍰
+      </p>
+    </section>
+
+    <section class="deseos tarjeta">
+      <h2>💌 Deseos para ti 💌</h2>
+      <ul>
+        <li>🌟 Que nunca te falten sonrisas sinceras</li>
+        <li>🌷 Que el amor te encuentre en cada esquina</li>
+        <li>💫 Que cumplas todos tus sueños y aún más</li>
+        <li>🌈 Que tu corazón siempre baile al ritmo de la vida</li>
+      </ul>
+    </section>
+
+    <section class="firma tarjeta">
+      <p>Con todo mi cariño,</p>
+      <h3>💖 Tu amigo: Ulises 💖</h3>
+
+      <div class="botones-contenedor">
+        <a href="poemas.html" class="boton-seccion">✨ Ver los poemas mágicos ✨</a>
+        <a href="carta.html" class="boton-seccion">💌 Leer tu carta especial 💌</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>🎉 Celebrando contigo cada color de este día tan especial 🎉</p>
+  </footer>
+</body>
+</html>

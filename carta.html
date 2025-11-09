@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 Carta para la Peque 💌</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #333;
+      padding: 40px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.3em;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    /* Corazón flotante */
+    .corazon {
+      position: absolute;
+      top: 50%;
+      left: -100px;
+      font-size: 3em;
+      color: #ff4d6d;
+      animation: flotar 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateX(-100px) translateY(0); opacity: 0.8; }
+      50% { transform: translateX(50vw) translateY(-50px) scale(1.2); opacity: 1; }
+      100% { transform: translateX(110vw) translateY(0); opacity: 0; }
+    }
+
+    /* El sobre */
+    .sobre {
+      width: 120px;
+      height: 80px;
+      background: #f8bbd0;
+      position: relative;
+      margin: 50px auto;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      animation: latido 1.5s infinite ease-in-out;
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .tapa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #f48fb1;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transition: transform 0.6s ease;
+      transform-origin: top;
+    }
+
+    .sobre.abierto .tapa {
+      transform: rotateX(180deg);
+    }
+
+    /* La carta */
+    .carta {
+      display: none;
+      max-width: 700px;
+      background: #fff;
+      padding: 30px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .carta.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: latidoCarta 1.8s infinite ease-in-out;
+    }
+
+    @keyframes latidoCarta {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(233, 30, 99, 0.3); }
+      50% { transform: scale(1.03); box-shadow: 0 0 35px rgba(233, 30, 99, 0.6); }
+    }
+
+    .firma {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌 Una carta para ti 💌</h1>
+  <p>Toca el sobre para abrir la carta, Peque 👇</p>
+
+  <div class="corazon">❤️</div>
+
+  <div class="sobre" id="sobre">
+    <div class="tapa"></div>
+  </div>
+
+  <div class="carta" id="carta">
+    <p>
+Querida Peque,  
+te conozco desde hace años y aunque casi no hablemos quiero que sepas que eres una persona especial para mí.  
+Aunque borraras esto y no le tomaras importancia, quiero decirte que este es mi regalo para ti; no son flores, pero es un regalo desde el corazón.  
+Quiero decirte que eres una gran persona y no importa lo que pase, yo siempre estaré para ti.  
+
+Me arrepiento mucho de haberte dejado de hablar, y a veces pienso en el “qué hubiera pasado”, pero no existe.  
+Hubiera sido mejor decirte las cosas y morir como un buen soldado, pero eso ya no importa.  
+
+Quiero que sepas que eres una persona sumamente especial para mí y que no importa lo que pase, yo estaré aquí.  
+Aunque todo el mundo esté en tu contra y todos te hayan dejado, quiero que sepas que estaré para ti,  
+para recordarte la persona tan maravillosa que eres.  
+
+Recuerda que eres una persona grandiosa y que nunca se da por vencida,  
+y ese es tu mayor rasgo: la fuerza con la que enfrentas el mundo.  
+
+Por eso quiero desearte la mayor felicidad que exista en este mundo,  
+porque tú te la mereces.  
+A veces la vida se pone fea y parece que te odia,  
+pero el mundo es hermoso y tiene cosas demasiado bellas para ti.  
+
+Recuerda que puedes lograr todo lo que te propongas  
+y convertirte en la mejor *chefsita* que haya existido.  
+Eres muy especial, Peque.  
+Si pudiera arrancarme el corazón, te lo daría para que así nunca te hicieran daño.  
+Eres realmente grandiosa.  
+
+Te quiero.  
+— Ulises ❤️
+    </p>
+  </div>
+
+  <script>
+    const sobre = document.getElementById('sobre');
+    const carta = document.getElementById('carta');
+
+    // Confeti
+    function lanzarConfeti() {
+      for (let i = 0; i < 50; i++) {
+        const confeti = document.createElement('div');
+        confeti.style.position = 'fixed';
+        confeti.style.top = '0';
+        confeti.style.left = Math.random() * 100 + 'vw';
+        confeti.style.width = '10px';
+        confeti.style.height = '10px';
+        confeti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        confeti.style.opacity = 0.9;
+        confeti.style.borderRadius = '50%';
+        confeti.style.pointerEvents = 'none';
+        confeti.style.animation = `caer ${2 + Math.random() * 3}s linear forwards`;
+        document.body.appendChild(confeti);
+        setTimeout(() => confeti.remove(), 5000);
+      }
+    }
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes caer {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    sobre.addEventListener('click', () => {
+      sobre.classList.toggle('abierto');
+      setTimeout(() => {
+        carta.classList.toggle('visible');
+        lanzarConfeti();
+      }, 600);
+    });
+  </script>
+
+</body>
+</html>
